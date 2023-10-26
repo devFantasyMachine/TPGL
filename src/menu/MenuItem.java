@@ -1,6 +1,7 @@
 package menu;
 
-public final class MenuItem implements MenuComponent{
+
+public final class MenuItem implements MenuComponent {
 
     private String name;
     private String description;
@@ -41,4 +42,8 @@ public final class MenuItem implements MenuComponent{
     }
 
 
+    @Override
+    public void accept(MenuComponentVisitor menuComponentVisitor) {
+        menuComponentVisitor.visiteMenuItem(this);
+    }
 }

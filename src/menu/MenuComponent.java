@@ -2,7 +2,7 @@ package menu;
 
 
 
-public interface MenuComponent {
+public interface MenuComponent extends MenuComponentVisitable {
 
     String getName();
     String getDescription();

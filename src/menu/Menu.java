@@ -61,7 +61,6 @@ public final class Menu implements MenuComponent {
     @Override
     public void remove(MenuComponent menuComponent) {
         components.remove(menuComponent);
-
     }
 
     @Override
@@ -70,4 +69,12 @@ public final class Menu implements MenuComponent {
     }
 
 
+    @Override
+    public void accept(MenuComponentVisitor menuComponentVisitor) {
+        menuComponentVisitor.visiteMenu(this);
+    }
+
+    public List<MenuComponent> getChildren() {
+        return components;
+    }
 }

@@ -5,14 +5,16 @@ public class Waitress {
 
     public void print(){
 
+        PrintVegetarianVisitor printVegetarianVisitor = new PrintVegetarianVisitor();
+
         MenuComponent menu =
                 new Menu("Main","Main Menu",null,true);
 
         MenuComponent menu1 =
-                new Menu("Matinée","Menu 1",null,true);
+                new Menu("Matinée","Sub Menu 1",null,true);
 
         MenuComponent menu2 =
-                new Menu("Diner","Menu 2",null,true);
+                new Menu("Midi","Sub Menu 2",null,true);
 
         menu1.add(new MenuItem(
                 "Salade",
@@ -32,12 +34,22 @@ public class Waitress {
                 "Poisson Braisé",
                 "ras",
                 3000F,
+                false
+        ));
+
+        menu2.add(new MenuItem(
+                "Okok Salé",
+                "la verité",
+                500F,
                 true
         ));
 
         menu.add(menu1);
         menu.add(menu2);
 
-        menu.print();
+
+        menu.accept(printVegetarianVisitor);
+
+        //menu.print();
     }
 }
